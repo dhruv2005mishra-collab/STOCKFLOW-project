@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assign Item | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="requireAdmin(); updateAccessUI();">
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav " href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly " href="add.html">➕ Add Item</a>
+    <a class="nav " href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly active" href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly " href="return.html">📥 Restock Item</a>
+    <a class="nav " href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Assign Item</h1>
+          <p>Assign a usable in-stock item to an employee or department.</p>
+        </div>
+        <a class="topBtn" href="books.html">Check Stock</a>
+      </div>
+
+      <div class="formLayout">
+        <div class="formBox">
+          <div class="formIcon">📤</div>
+          <h2>Assign Inventory Item</h2>
+          <p class="muted">Damaged or maintenance items cannot be assigned.</p>
+
+          <label>Item ID</label>
+          <input id="assignItemId" placeholder="Example: I101">
+
+          <label>Employee Name</label>
+          <input id="employeeName" placeholder="Enter employee name">
+
+          <label>Department</label>
+          <input id="department" placeholder="Example: IT Department">
+
+          <button onclick="assignItem()">Assign Item</button>
+        </div>
+
+        <div class="previewCard">
+          <div class="previewImage assignImage"></div>
+          <h3>Assignment Rules</h3>
+          <p>The system checks whether the item exists and is usable before assignment.</p>
+          <div class="miniList">
+            <span>Item must exist</span>
+            <span>Item should not be damaged</span>
+            <span>Maintenance items blocked</span>
+            <span>Activity log is updated</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

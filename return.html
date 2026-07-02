@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restock / Status Update | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="requireAdmin(); updateAccessUI();">
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav " href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly " href="add.html">➕ Add Item</a>
+    <a class="nav " href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly " href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly active" href="return.html">📥 Restock Item</a>
+    <a class="nav " href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Restock & Status Update</h1>
+          <p>Restock quantity or mark items damaged/under maintenance.</p>
+        </div>
+        <a class="topBtn" href="books.html">View Records</a>
+      </div>
+
+      <div class="formLayout">
+        <div class="formBox">
+          <div class="formIcon">📥</div>
+          <h2>Restock Inventory Item</h2>
+          <p class="muted">Add quantity and make the item available again.</p>
+
+          <label>Item ID</label>
+          <input id="restockItemId" placeholder="Example: I101">
+
+          <label>Add Quantity</label>
+          <input id="restockQuantity" type="number" min="0" placeholder="Example: 5">
+
+          <button onclick="restockItem()">Restock Item</button>
+        </div>
+
+        <div class="formBox">
+          <div class="formIcon">🛠️</div>
+          <h2>Update Item Status</h2>
+          <p class="muted">Use this for damaged or maintenance items.</p>
+
+          <label>Item ID</label>
+          <input id="statusItemId" placeholder="Example: I105">
+
+          <label>New Status</label>
+          <select id="newStatus">
+            <option value="In Stock">In Stock</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Under Maintenance">Under Maintenance</option>
+            <option value="Damaged">Damaged</option>
+          </select>
+
+          <button onclick="updateItemStatus()">Update Status</button>
+        </div>
+      </div>
+
+      <section class="featureStrip">
+        <div class="featureBox">
+          <h3>Restock</h3>
+          <p>Add fresh quantity and automatically update stock status.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Maintenance</h3>
+          <p>Mark items under maintenance so they cannot be assigned.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Damaged</h3>
+          <p>Mark unusable items as damaged for better tracking.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

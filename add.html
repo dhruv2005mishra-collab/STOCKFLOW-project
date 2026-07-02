@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Item | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="requireAdmin(); updateAccessUI();">
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav " href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly active" href="add.html">➕ Add Item</a>
+    <a class="nav " href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly " href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly " href="return.html">📥 Restock Item</a>
+    <a class="nav " href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Add Inventory Item</h1>
+          <p>Create a new record with supplier, category and quantity.</p>
+        </div>
+        <a class="topBtn" href="books.html">View Items</a>
+      </div>
+
+      <div class="formLayout">
+        <div class="formBox">
+          <div class="formIcon">➕</div>
+          <h2>Add New Item</h2>
+          <p class="muted">Fill all details carefully. Item ID must be unique.</p>
+
+          <label>Item ID</label>
+          <input id="itemId" placeholder="Example: I107">
+
+          <label>Item Name</label>
+          <input id="itemName" placeholder="Example: Printer, Monitor, Router">
+
+          <label>Supplier Name</label>
+          <input id="supplier" placeholder="Example: HP, Dell, Logitech">
+
+          <label>Category</label>
+          <input id="category" placeholder="Example: Electronics">
+
+          <label>Quantity</label>
+          <input id="quantity" type="number" min="0" placeholder="Example: 10">
+
+          <button onclick="addItem()">Add Item</button>
+        </div>
+
+        <div class="previewCard">
+          <div class="previewImage"></div>
+          <h3>Admin Item Entry</h3>
+          <p>This module adds new inventory items. Status is automatically decided using quantity.</p>
+          <div class="miniList">
+            <span>Quantity 0-3 → Low Stock</span>
+            <span>Quantity above 3 → In Stock</span>
+            <span>Category cards update automatically</span>
+            <span>Activity log is updated</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="featureStrip">
+        <div class="featureBox">
+          <h3>Quantity Tracking</h3>
+          <p>Every inventory item now has a quantity field.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Auto Status</h3>
+          <p>The system automatically marks low stock based on quantity.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Activity Log</h3>
+          <p>Adding an item creates an activity record.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

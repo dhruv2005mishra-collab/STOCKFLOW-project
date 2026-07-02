@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Project | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="requireLogin(); updateAccessUI();">
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav " href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly " href="add.html">➕ Add Item</a>
+    <a class="nav " href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly " href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly " href="return.html">📥 Restock Item</a>
+    <a class="nav active" href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>About Project</h1>
+          <p>Project objective, modules, technology and future scope.</p>
+        </div>
+        <a class="topBtn" href="index.html">Dashboard</a>
+      </div>
+
+      <section class="aboutHero">
+        <span class="pill">BCA Major Project</span>
+        <h2>StockFlow — Inventory Management System</h2>
+        <p>
+          StockFlow is a simple and professional inventory management website made using
+          HTML, CSS and JavaScript. It helps manage item records, stock quantity,
+          item status, assignments and reports with admin and visitor access.
+        </p>
+      </section>
+
+      <section class="aboutGrid">
+        <div class="aboutBox">
+          <h3>Objective</h3>
+          <ul>
+            <li>To reduce manual inventory register work.</li>
+            <li>To manage item records digitally.</li>
+            <li>To provide admin and visitor level access.</li>
+            <li>To track quantity, status and item assignment.</li>
+          </ul>
+        </div>
+
+        <div class="aboutBox">
+          <h3>Technology Used</h3>
+          <ul>
+            <li>HTML for webpage structure.</li>
+            <li>CSS for professional UI design.</li>
+            <li>JavaScript for functionality.</li>
+            <li>localStorage for browser data storage.</li>
+          </ul>
+        </div>
+
+        <div class="aboutBox">
+          <h3>Main Modules</h3>
+          <ul>
+            <li>Login Module</li>
+            <li>Dashboard Module</li>
+            <li>Add Item Module</li>
+            <li>Inventory Records Module</li>
+            <li>Assign / Restock Module</li>
+            <li>Print Report Module</li>
+          </ul>
+        </div>
+
+        <div class="aboutBox">
+          <h3>Features</h3>
+          <ul>
+            <li>Admin and visitor access.</li>
+            <li>Quantity tracking.</li>
+            <li>Low stock indicator.</li>
+            <li>Category overview cards.</li>
+            <li>Activity log.</li>
+            <li>Printable inventory report.</li>
+          </ul>
+        </div>
+
+        <div class="aboutBox">
+          <h3>Future Scope</h3>
+          <ul>
+            <li>Backend authentication.</li>
+            <li>Database integration.</li>
+            <li>Supplier management.</li>
+            <li>Purchase and sales records.</li>
+            <li>PDF report generation.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

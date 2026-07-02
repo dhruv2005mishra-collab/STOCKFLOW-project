@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockFlow Final | Inventory Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav active" href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly " href="add.html">➕ Add Item</a>
+    <a class="nav " href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly " href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly " href="return.html">📥 Restock Item</a>
+    <a class="nav " href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Inventory Dashboard</h1>
+          <p>Track stock, categories, quantity, assignments and inventory status.</p>
+        </div>
+        <div class="topActions">
+          <a class="topBtn" href="about.html">About Project</a>
+          <a class="topBtn" href="books.html">View Records</a>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div>
+          <span class="pill">Final Major Project Version</span>
+          <h2>Smart Inventory Management System</h2>
+          <p>
+            A complete-looking inventory portal with login, admin/visitor access,
+            quantity tracking, low stock alerts, category cards, activity log and printable reports.
+          </p>
+          <div class="actions">
+            <a class="btn primary adminOnly" href="add.html">Add New Item</a>
+            <a class="btn dark" href="books.html">Explore Inventory</a>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="glassCard">
+            <h3>Quick Menu</h3>
+            <a class="adminOnly" href="add.html">➕ Add Item</a>
+            <a href="books.html">🔎 Search Items</a>
+            <a class="adminOnly" href="issue.html">📤 Assign Item</a>
+            <a class="adminOnly" href="return.html">📥 Restock / Update Status</a>
+          </div>
+          <div class="heroMetric">
+            <h3 id="profileName">User</h3>
+            <p id="profileRole">Checking access...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="statCard">
+          <span>📦</span>
+          <h2 id="totalItems">0</h2>
+          <p>Total Items</p>
+        </div>
+        <div class="statCard">
+          <span>✅</span>
+          <h2 id="inStockItems">0</h2>
+          <p>In Stock</p>
+        </div>
+        <div class="statCard">
+          <span>📌</span>
+          <h2 id="assignedItems">0</h2>
+          <p>Assigned Items</p>
+        </div>
+        <div class="statCard">
+          <span>⚠️</span>
+          <h2 id="lowStockItems">0</h2>
+          <p>Low Stock</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="pageTitle" style="text-align:left;margin-top:26px;">
+          <h1 style="font-size:28px;color:#1d4ed8;margin-bottom:6px;">Category Overview</h1>
+          <p style="color:#64748b;">Auto-generated category cards based on inventory records.</p>
+        </div>
+        <div id="categoryCards" class="categoryGrid"></div>
+      </section>
+
+      <section class="quickGrid">
+        <a class="quickTile adminOnly" href="add.html">
+          <span>➕</span>
+          <h3>Add Item</h3>
+          <p>Create a new inventory record with supplier, category and quantity.</p>
+        </a>
+        <a class="quickTile" href="books.html">
+          <span>🖨️</span>
+          <h3>Print Report</h3>
+          <p>Open records page and print the inventory report.</p>
+        </a>
+        <a class="quickTile adminOnly" href="issue.html">
+          <span>📤</span>
+          <h3>Assign</h3>
+          <p>Assign usable items to employees or departments.</p>
+        </a>
+        <a class="quickTile adminOnly" href="return.html">
+          <span>🛠️</span>
+          <h3>Status Update</h3>
+          <p>Restock items or mark them damaged/under maintenance.</p>
+        </a>
+      </section>
+
+      <section class="sectionGrid">
+        <div class="infoCard">
+          <h3>Inventory Workflow</h3>
+          <ul>
+            <li>Admin logs in and manages all inventory operations.</li>
+            <li>Items include item ID, name, supplier, category and quantity.</li>
+            <li>Status can be In Stock, Low Stock, Assigned, Damaged or Under Maintenance.</li>
+            <li>Visitors can only view dashboard and records.</li>
+          </ul>
+        </div>
+
+        <div class="activityCard">
+          <h3>Recent Activity</h3>
+          <div id="activityList" class="timeline"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+  <script>loadHomeStats();</script>
+</body>
+</html>

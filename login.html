@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loginPage">
+    <div class="loginLeft">
+      <div class="brand loginBrand">
+        <div class="logo">S</div>
+        <div>
+          <h2>StockFlow</h2>
+          <p>Inventory Management System</p>
+        </div>
+      </div>
+
+      <h1>Secure Inventory Access</h1>
+      <p>
+        A professional inventory dashboard with admin control and visitor-only access.
+        Track items, stock status, assignments and daily inventory activity.
+      </p>
+
+      <div class="loginInfo">
+        <h3>Demo Login Details</h3>
+        <p><b>Admin Username:</b> admin</p>
+        <p><b>Admin Password:</b> 1234</p>
+        <p><b>Visitor:</b> Click Visitor Access</p>
+      </div>
+    </div>
+
+    <div class="loginCard">
+      <h2>Welcome Back</h2>
+      <p class="muted">Login as admin or continue as visitor.</p>
+
+      <label>Username</label>
+      <input id="username" placeholder="Enter username">
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter password">
+
+      <button onclick="adminLogin()">Login as Admin</button>
+      <button class="visitorBtn" onclick="visitorLogin()">Continue as Visitor</button>
+
+      <p class="loginNote">
+        Visitor can view dashboard and records but cannot add, delete, assign or restock items.
+      </p>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

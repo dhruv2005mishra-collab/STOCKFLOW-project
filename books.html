@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory Records | StockFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="showItems()">
+  <div class="appShell">
+    
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h2>StockFlow</h2>
+        <p>Inventory System</p>
+      </div>
+    </div>
+
+    <a class="nav " href="index.html">🏠 Dashboard</a>
+    <a class="nav adminOnly " href="add.html">➕ Add Item</a>
+    <a class="nav active" href="books.html">📦 Inventory Records</a>
+    <a class="nav adminOnly " href="issue.html">📤 Assign Item</a>
+    <a class="nav adminOnly " href="return.html">📥 Restock Item</a>
+    <a class="nav " href="about.html">ℹ️ About Project</a>
+
+    <div class="sideCard accessCard">
+      <h3 id="roleBox">User Access</h3>
+      <p id="roleText">Checking login...</p>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="sideMini">
+      <p>System Status</p>
+      <h3>● Online</h3>
+    </div>
+  </aside>
+
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Inventory Records</h1>
+          <p>Search, filter, print and monitor all inventory items.</p>
+        </div>
+        <div class="topActions">
+          <a class="topBtn adminOnly" href="add.html">Add Item</a>
+          <button class="topBtn printBtn" onclick="printReport()" style="width:auto;margin-top:0;">Print Report</button>
+        </div>
+      </div>
+
+      <div class="recordStats">
+        <div><b id="pageTotal">0</b><span>Total</span></div>
+        <div><b id="pageInStock">0</b><span>In Stock</span></div>
+        <div><b id="pageAssigned">0</b><span>Assigned</span></div>
+        <div><b id="pageLowStock">0</b><span>Low Stock</span></div>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" placeholder="Search by ID, item name, supplier, category or status..." onkeyup="showItems()">
+        <select id="filterStatus" onchange="showItems()">
+          <option value="All">All Items</option>
+          <option value="In Stock">In Stock</option>
+          <option value="Low Stock">Low Stock</option>
+          <option value="Assigned">Assigned</option>
+          <option value="Under Maintenance">Under Maintenance</option>
+          <option value="Damaged">Damaged</option>
+        </select>
+        <button id="resetButton" class="darkButton" onclick="resetItems()">Reset Data</button>
+      </div>
+
+      <div class="tableCard">
+        <table>
+          <thead>
+            <tr>
+              <th>Item ID</th>
+              <th>Item Name</th>
+              <th>Supplier</th>
+              <th>Category</th>
+              <th>Qty</th>
+              <th>Status</th>
+              <th>Assigned To</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="itemTable"></tbody>
+        </table>
+
+        <p id="emptyMessage" class="empty"></p>
+      </div>
+
+      <section class="featureStrip">
+        <div class="featureBox">
+          <h3>Printable Report</h3>
+          <p>Click Print Report to generate a simple inventory printout.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Advanced Status</h3>
+          <p>Items can be In Stock, Low Stock, Assigned, Damaged or Under Maintenance.</p>
+        </div>
+        <div class="featureBox">
+          <h3>Visitor Mode</h3>
+          <p>Visitors can search and filter, but cannot modify records.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
