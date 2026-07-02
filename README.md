@@ -7,7 +7,7 @@ Tech Stack:
 - JavaScript
 - localStorage
 
-No React, no backend, no database setup, no terminal.
+No react, no backend, no database setup, no terminal.
 
 About Project:
 Our project is StockFlow Web application, an Inventory Management System made using HTML, CSS and JavaScript.
